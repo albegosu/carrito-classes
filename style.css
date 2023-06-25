@@ -1,0 +1,167 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --colorGrey: rgb(214, 214, 214);
+    --colorFont: rgb(133, 133, 133);
+}
+
+/* GLOBALES */
+
+.title {
+    border-bottom: 1px solid var(--colorGrey);
+    padding-bottom: 2rem;
+    padding-left: 4rem;
+}
+
+.main {
+    display: flex;
+    margin: 4rem 4rem;
+}
+
+.table {
+    width: 50rem;
+    margin-right: 2rem;
+}
+
+thead th:nth-child(1) {
+    width: 40%;
+}
+
+thead th:nth-child(2) {
+    width: 20%;
+}
+
+thead th:nth-child(3) {
+    width: 20%;
+}
+
+thead th:nth-child(4) {
+    width: 20%;
+}
+
+th {
+    padding: 20px;
+    border-bottom: 1px solid grey;
+}
+
+td {
+    padding: 20px;
+    border-bottom: 1px solid var(--colorGrey);
+}
+
+.table__head--title {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+tbody {
+    padding: 1rem 0;
+}
+
+.table__body--row {
+    padding: 1rem 0;
+}
+
+.table__productTitle {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 0.08rem;
+    margin-bottom: 1rem;
+}
+
+.table__productRef {
+    color: var(--colorFont);
+    padding-top: 2rem;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield;
+  /* Agrega estilos adicionales según tus necesidades */
+}
+
+.quantity__value {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    border: 1px solid var(--colorGrey);
+}
+
+.quantity__button {
+    background-color: transparent;
+    border: none;
+    margin: 0 0,5rem;
+    transition: 0.3s;
+}
+
+.quantity__button:hover {
+    color: blueviolet;
+    transform: scale(2rem);
+}
+
+.price,
+.totalPrice {
+    text-align: center;
+}
+
+.resumenCarrito {
+    background-color: rgb(245, 245, 245);
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    margin-bottom: auto;
+    min-width: 25rem;
+
+}
+
+#resumen {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--colorGrey);
+}
+
+.resumenCarrito__Title {
+    font-size: 1.5rem;
+}
+
+.resumen__producto {
+    display: flex;
+    justify-content: space-between;
+    color: var(--colorFont);
+}
+
+#total {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.totalAll {
+    color: var(--colorFont);
+}
+
+.blackPrice {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
