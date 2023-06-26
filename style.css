@@ -14,7 +14,7 @@ html {
     --colorFont: rgb(133, 133, 133);
 }
 
-/* GLOBALES */
+/* H1 */
 
 .title {
     border-bottom: 1px solid var(--colorGrey);
@@ -22,10 +22,14 @@ html {
     padding-left: 4rem;
 }
 
+/* MAIN */
+
 .main {
     display: flex;
     margin: 4rem 4rem;
 }
+
+/* TABLE */
 
 .table {
     width: 50rem;
@@ -83,6 +87,7 @@ tbody {
     padding-top: 2rem;
 }
 
+    /* INPUT TABLE */
 .input {
     display: flex;
     justify-content: center;
@@ -97,9 +102,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 input[type="number"] {
-  -moz-appearance: textfield; /* Firefox */
+  -moz-appearance: textfield;
   appearance: textfield;
-  /* Agrega estilos adicionales según tus necesidades */
 }
 
 .quantity__value {
@@ -126,6 +130,8 @@ input[type="number"] {
 .totalPrice {
     text-align: center;
 }
+
+/* RESUMEN CARRITO */
 
 .resumenCarrito {
     background-color: rgb(245, 245, 245);

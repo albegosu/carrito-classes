@@ -2,37 +2,38 @@ import { Carrito } from "./carrito.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     
-const carrito = new Carrito(['AgoodShop Carrito']);
+  const carrito = new Carrito('AgoodShop Carrito');
 
-fetch('https://jsonblob.com/api/jsonBlob/1122506093036322816')
-  .then(response => response.json())
-  .then(data => {
-    carrito.productos = data.products;
-    
-    crearCarrito(carrito);
-  });
+  fetch('https://jsonblob.com/api/jsonBlob/1122506093036322816')
+    .then(response => response.json())
+    .then(data => {
+      carrito.productos = data.products;
+      
+      crearCarrito(carrito);
+    });
 
   function crearCarrito(carrito) {
     const listadoCarrito = document.getElementById('carrito');
   
-    // Crear tabla
     const table = document.createElement('table');
     table.classList.add('table');
   
-    // Crear encabezados de columna
     const thead = document.createElement('thead');
     const headerRow = document.createElement('tr');
     headerRow.classList.add('table__head');
-    headerRow.innerHTML = `<th class="table__head--title">Producto</th>
+    headerRow.innerHTML = `
+    <th class="table__head--title">Producto</th>
     <th class="table__head--title">Cantidad</th>
     <th class="table__head--title">Unidad</th>
-    <th class="table__head--title">Total</th>`;
+    <th class="table__head--title">Total</th>
+    `;
+
     thead.appendChild(headerRow);
     table.appendChild(thead);
   
-    // Crear filas de productos
     const tbody = document.createElement('tbody');
     tbody.classList.add('table__body')
+    
     carrito.productos.forEach(producto => {
       producto.cantidad = 0;
       const row = document.createElement('tr');
@@ -42,14 +43,13 @@ fetch('https://jsonblob.com/api/jsonBlob/1122506093036322816')
         <td class="input">
           <div class="quantity">
             <button class="quantity__button minus">-</button>
-            <input type="number" min="0" value="0" data-sku="${producto.SKU}" class="quantity__value" placeholder="0">
+            <input type="number" min="0" value="0" data-sku="${producto.SKU}" class="quantity__value" placeholder="Ud.">
             <button class="quantity__button plus">+</button>
           </div>
         </td>
         <td class="price">${producto.price}€</td>
         <td class="totalPrice" id="total-${producto.SKU}">0.00€</td>
       `;
-      
 
       const inputNum = row.querySelector('input');
       const minusButton = row.querySelector('.minus');
@@ -74,7 +74,10 @@ fetch('https://jsonblob.com/api/jsonBlob/1122506093036322816')
       })
       
       inputNum.addEventListener('input', () => {
-        const quantityNow = parseInt(inputNum.value);
+        let quantityNow = parseInt(inputNum.value);
+        if (isNaN(quantityNow)) {
+          quantityNow = 0;
+        }
         actualizarTotal(quantityNow, producto);
       });
 

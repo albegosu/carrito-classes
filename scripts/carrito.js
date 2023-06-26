@@ -24,7 +24,7 @@ export class Carrito {
         this.productos.forEach(producto => {
             sumTotal += parseFloat(producto.cantidad) * parseFloat(producto.price);
         });
-        this.totalPrice = sumTotal;
+        this.totalPrice = sumTotal.toFixed(2);
     }
   
     obtenerCarrito() {
